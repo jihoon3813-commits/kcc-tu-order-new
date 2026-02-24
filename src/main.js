@@ -191,12 +191,10 @@ function filterByPeriod(list, mode, year, month, rangeMonths) {
  */
 async function login() {
     // Force use DEFAULT_GAS_URL if input is empty or hidden
-    const inputUrl = $('gasUrl').value.trim();
+    const inputUrl = $('gasUrl') ? $('gasUrl').value.trim() : "";
     const gasUrl = inputUrl || DEFAULT_GAS_URL;
     const pw = $('pw').value.trim();
 
-    console.log('Login attempt with URL:', gasUrl);
-    if (!gasUrl) return alert('GAS Web App URL이 없습니다.');
     if (!pw) return alert('Passcode를 입력해주세요.');
 
     $('loginMsg').innerText = '접속 시도 중...';

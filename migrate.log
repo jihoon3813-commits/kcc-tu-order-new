@@ -1,0 +1,68 @@
+1. GAS 데이터 불러오기 시작...
+성공: 설정(10개 항목), 고객(50건)
+2. Convex로 마이그레이션 중...
+ - config: branches 저장 완료
+ - config: esignStatusList 저장 완료
+ - config: constructConfirmList 저장 완료
+ - config: kccDepositStatusList 저장 완료
+ - config: subApproveList 저장 완료
+ - config: hankaeFeedbackList 저장 완료
+ - config: payMethods 저장 완료
+ - config: inflowChannels 저장 완료
+ - config: plusProducts 저장 완료
+ - config: banners 저장 완료
+고객 데이터 삽입 실패: 238-1 [Request ID: e4a56004384b9a78] Server Error
+Uncaught Error: Failed to insert or update a document in table "customers" because it does not match the schema: Object contains extra field `no` that is not in the validator.
+
+Object: {address: "전남 완도군 고금면 내동1길 12, 1번지", applyDate: "Mon Jan 12 2026 00:00:00 GMT+0900 (한국 표준시)", balanceAmount: "2631900", balancePaidDate: "Mon Feb 02 2026 00:00:00 GMT+0900 (한국 표준시)", birth: "", branch: "수원", constructConfirm: "완료", constructDateFix: "Sat Jan 31 2026 00:00:00 GMT+0900 (한국 표준시)", customerNo: "238-1", deliveryDate: "", esignDate: "Wed Jan 01 46042 00:00:00 GMT+0900 (한국 표준시)", esignStatus: "서명완료", finalQuote: "5631900", hankaeFeedback: "", inflowChannel: "NS_Y", installmentContractDate: "", interestYn: "", kccDepositStatus: "입금완료", kccSupplyPrice: "4749041", memo: "", name: "정미향", no: "", paidAmount: "3000000", paidDate: "Thu Jan 22 2026 00:00:00 GMT+0900 (한국 표준시)", payMethod: "50/50(현금)", phone: "010-2983-1112", plusModel: "", plusProduct: "N", plusYn: "N", recordingRequestDate: "", regDate: "Tue Jan 20 2026 00:00:00 GMT+0900 (한국 표준시)", subApprove: "", subMonthlyFee: "", subMonths: "", subTotalFee: ""}
+Validator: v.object({address: v.optional(v.string()), applyDate: v.optional(v.string()), balanceAmount: v.optional(v.union(v.float64(), v.string())), balancePaidDate: v.optional(v.string()), birth: v.optional(v.string()), branch: v.optional(v.string()), constructConfirm: v.optional(v.string()), constructDateFix: v.optional(v.string()), customerNo: v.string(), deliveryDate: v.optional(v.string()), esignDate: v.optional(v.string()), esignStatus: v.optional(v.string()), finalQuote: v.optional(v.union(v.float64(), v.string())), hankaeFeedback: v.optional(v.string()), inflowChannel: v.optional(v.string()), installmentContractDate: v.optional(v.string()), interestYn: v.optional(v.string()), kccDepositStatus: v.optional(v.string()), kccSupplyPrice: v.optional(v.union(v.float64(), v.string())), memo: v.optional(v.string()), memoQuick: v.optional(v.string()), name: v.optional(v.string()), paidAmount: v.optional(v.union(v.float64(), v.string())), paidDate: v.optional(v.string()), payMethod: v.optional(v.string()), phone: v.optional(v.string()), plusModel: v.optional(v.string()), plusProduct: v.optional(v.string()), plusYn: v.optional(v.string()), recordingRequestDate: v.optional(v.string()), regDate: v.optional(v.string()), subApprove: v.optional(v.string()), subMonthlyFee: v.optional(v.union(v.float64(), v.string())), subMonths: v.optional(v.union(v.float64(), v.string())), subTotalFee: v.optional(v.union(v.float64(), v.string()))})
+    at async handler (../convex/api.ts:56:13)
+
+고객 데이터: {
+  no: '',
+  branch: '수원',
+  customerNo: '238-1',
+  applyDate: 'Mon Jan 12 2026 00:00:00 GMT+0900 (한국 표준시)',
+  regDate: 'Tue Jan 20 2026 00:00:00 GMT+0900 (한국 표준시)',
+  inflowChannel: 'NS_Y',
+  name: '정미향',
+  phone: '010-2983-1112',
+  address: '전남 완도군 고금면 내동1길 12, 1번지',
+  constructConfirm: '완료',
+  constructDateFix: 'Sat Jan 31 2026 00:00:00 GMT+0900 (한국 표준시)',
+  payMethod: '50/50(현금)',
+  finalQuote: '5631900',
+  plusYn: 'N',
+  esignStatus: '서명완료',
+  esignDate: 'Wed Jan 01 46042 00:00:00 GMT+0900 (한국 표준시)',
+  kccSupplyPrice: '4749041',
+  kccDepositStatus: '입금완료',
+  paidAmount: '3000000',
+  paidDate: 'Thu Jan 22 2026 00:00:00 GMT+0900 (한국 표준시)',
+  balanceAmount: '2631900',
+  balancePaidDate: 'Mon Feb 02 2026 00:00:00 GMT+0900 (한국 표준시)',
+  birth: '',
+  interestYn: '',
+  subTotalFee: '',
+  subMonths: '',
+  subMonthlyFee: '',
+  subApprove: '',
+  hankaeFeedback: '',
+  installmentContractDate: '',
+  recordingRequestDate: '',
+  plusProduct: 'N',
+  plusModel: '',
+  deliveryDate: '',
+  memo: '',
+  _rowNumber: 2
+}
+Migration failed: Error: [Request ID: e4a56004384b9a78] Server Error
+Uncaught Error: Failed to insert or update a document in table "customers" because it does not match the schema: Object contains extra field `no` that is not in the validator.
+
+Object: {address: "전남 완도군 고금면 내동1길 12, 1번지", applyDate: "Mon Jan 12 2026 00:00:00 GMT+0900 (한국 표준시)", balanceAmount: "2631900", balancePaidDate: "Mon Feb 02 2026 00:00:00 GMT+0900 (한국 표준시)", birth: "", branch: "수원", constructConfirm: "완료", constructDateFix: "Sat Jan 31 2026 00:00:00 GMT+0900 (한국 표준시)", customerNo: "238-1", deliveryDate: "", esignDate: "Wed Jan 01 46042 00:00:00 GMT+0900 (한국 표준시)", esignStatus: "서명완료", finalQuote: "5631900", hankaeFeedback: "", inflowChannel: "NS_Y", installmentContractDate: "", interestYn: "", kccDepositStatus: "입금완료", kccSupplyPrice: "4749041", memo: "", name: "정미향", no: "", paidAmount: "3000000", paidDate: "Thu Jan 22 2026 00:00:00 GMT+0900 (한국 표준시)", payMethod: "50/50(현금)", phone: "010-2983-1112", plusModel: "", plusProduct: "N", plusYn: "N", recordingRequestDate: "", regDate: "Tue Jan 20 2026 00:00:00 GMT+0900 (한국 표준시)", subApprove: "", subMonthlyFee: "", subMonths: "", subTotalFee: ""}
+Validator: v.object({address: v.optional(v.string()), applyDate: v.optional(v.string()), balanceAmount: v.optional(v.union(v.float64(), v.string())), balancePaidDate: v.optional(v.string()), birth: v.optional(v.string()), branch: v.optional(v.string()), constructConfirm: v.optional(v.string()), constructDateFix: v.optional(v.string()), customerNo: v.string(), deliveryDate: v.optional(v.string()), esignDate: v.optional(v.string()), esignStatus: v.optional(v.string()), finalQuote: v.optional(v.union(v.float64(), v.string())), hankaeFeedback: v.optional(v.string()), inflowChannel: v.optional(v.string()), installmentContractDate: v.optional(v.string()), interestYn: v.optional(v.string()), kccDepositStatus: v.optional(v.string()), kccSupplyPrice: v.optional(v.union(v.float64(), v.string())), memo: v.optional(v.string()), memoQuick: v.optional(v.string()), name: v.optional(v.string()), paidAmount: v.optional(v.union(v.float64(), v.string())), paidDate: v.optional(v.string()), payMethod: v.optional(v.string()), phone: v.optional(v.string()), plusModel: v.optional(v.string()), plusProduct: v.optional(v.string()), plusYn: v.optional(v.string()), recordingRequestDate: v.optional(v.string()), regDate: v.optional(v.string()), subApprove: v.optional(v.string()), subMonthlyFee: v.optional(v.union(v.float64(), v.string())), subMonths: v.optional(v.union(v.float64(), v.string())), subTotalFee: v.optional(v.union(v.float64(), v.string()))})
+    at async handler (../convex/api.ts:56:13)
+
+    at ConvexHttpClient.mutationInner (file:///E:/anti-gv/10.%20KCC%EA%B4%80%EB%A6%AC%EC%9E%90(TU)/node_modules/convex/dist/esm/browser/http_client.js:297:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+    at async ConvexHttpClient.processMutationQueue (file:///E:/anti-gv/10.%20KCC%EA%B4%80%EB%A6%AC%EC%9E%90(TU)/node_modules/convex/dist/esm/browser/http_client.js:310:24)
