@@ -5,9 +5,8 @@ import { v } from "convex/values";
 export const checkLogin = query({
     args: { passcode: v.string() },
     handler: async (ctx, args) => {
-        // This replicates the passcode check.
-        // Replace "xldb@@" with any configured secure passcode if needed.
-        if (args.passcode === "xldb@@") {
+        const storedPasscode = process.env.KCC_PASSCODE || "xldb@@";
+        if (args.passcode === storedPasscode) {
             return { ok: true };
         }
         return { ok: false, msg: "비밀번호가 올바르지 않습니다." };
