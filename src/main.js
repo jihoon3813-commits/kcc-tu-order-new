@@ -1,3 +1,8 @@
+window.onerror = function (msg, url, lineNo, columnNo, error) {
+    alert('JS Error: ' + msg + '\nLine: ' + lineNo);
+    return false;
+};
+console.log('main.js loaded');
 import { serverCall, GAS_URL, DEFAULT_GAS_URL } from './api.js';
 
 /**
@@ -190,10 +195,13 @@ function filterByPeriod(list, mode, year, month, rangeMonths) {
  * Authentication
  */
 async function login() {
+    console.log('login() function started');
     // Force use DEFAULT_GAS_URL if input is empty or hidden
     const inputUrl = $('gasUrl') ? $('gasUrl').value.trim() : "";
     const gasUrl = inputUrl || DEFAULT_GAS_URL;
     const pw = $('pw').value.trim();
+
+    console.log('Attempting login with pw length:', pw.length);
 
     if (!pw) return alert('Passcode를 입력해주세요.');
 
