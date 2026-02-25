@@ -3,7 +3,7 @@ import { ConvexHttpClient } from "convex/browser";
 // Note: We'll construct requests directly since it's cleaner in vanilla JS.
 // We dynamically require the VITE_CONVEX_URL env.
 
-const convexUrl = import.meta.env.VITE_CONVEX_URL || "";
+const convexUrl = import.meta.env.VITE_CONVEX_URL || "https://formal-civet-526.convex.cloud";
 if (!convexUrl) {
     console.warn("VITE_CONVEX_URL is not set. Please run 'npx convex dev' to start Convex and configure local dev.");
 }

@@ -5,10 +5,11 @@ import { v } from "convex/values";
 export const checkLogin = query({
     args: { passcode: v.string() },
     handler: async (ctx, args) => {
-        const storedPasscode = process.env.KCC_PASSCODE || "xldb@@";
+        const storedPasscode = "xldb@@";
         if (args.passcode === storedPasscode) {
             return { ok: true };
         }
+        console.log(`Login failed. Expected: ${storedPasscode}, Got: ${args.passcode}`);
         return { ok: false, msg: "비밀번호가 올바르지 않습니다." };
     }
 });
